@@ -92,10 +92,16 @@ LESSONS LEARNED
 ==============================================================
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
+yyyy-mm-dd
+--------------------------------------------------------------
+<Member> :: <Thing member did.>
+<Member> :: <Thing member did.>
+<Member> :: <Thing member did.>
+==============================================================
 
 2018-01-04
 --------------------------------------------------------------
 Shruthi :: Created uml, edited project proposal to include stats and other features, created and edited devlog
-Kenny Lin :: 
+Kenny :: Created uml, edited project proposal to include stats and other features, created and edited devlog
 Maryann Foley :: Edited proposal, edited devlog
 ==============================================================
