@@ -1,0 +1,101 @@
+Christmas_Carraylers
+Shruthi Venkata
+Kenny Lin
+Maryann Foley
+pd 8
+---------------------
+Mini Library
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+USAGE:
+* Replace all fields, angle brackets included, with specified info.
+  eg, pd <pd#> --> pd 3
+* Delete these instructions once all teammates understand usage.
+  (from tilde bar above to tilde bar below)
+
+devlog--
+Use keyboard shortcut to jump to end,
+ replicate entry template,
+ modify appropriately.
+
+zone of reflection--
+Flesh out each category whenever necessary, appropriate.
+ Need not be fully filled in until end of project,
+ but best done as you go along.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To-Do List:
+Acquire txt files of books from different genres 
+Write class that makes a 3-D AL that contains all these books
+Write a (separate class??) that is able to print contents of txt files
+Before we ensure that the user can interact with this, we should make sure that we can manipulate it and see what we want by modifying ints for page numbers and whatnot within the program
+Write a class that parses through txt file and can identify end of words and sentences and has methods to calculate stats
+
+First term concepts:
+
+Reading filesSorts (to alphabetize titles in the ArrayList)
+
+Rough Timeline: 
+Version 1.0 (Jan 12th, Friday)
+Compilable classes
+User input enabled
+Skeleton library
+Version 2.0 ( Jan 14th, Sunday)
+Full implementation of statistics class 
+Bulk up library with additional titles/genres
+Page saving/showing feature added
+Version 3.0 ( January 16th, Tuesday)
+FINAL VERSION 
+Last bugs hunted 
+Project honed with lots of user testing 
+
+/////////// Zone of Reflection \\\\\\\\\\\
+------------------------------------------
+OBSTACLES OVERCOME
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<Wow, we so BOSS bc...>
+
+UNRESOLVED ISSUES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<
+blah blah pesky bug...
+maybe some of these will move into the Obs.Ovrcm section...
+>
+
+COOL STUFF LEARNED
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<wow! oo! etc!...>
+
+MID-DEVELOPMENT DESIGN CHANGES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We changed ___ to ___ bc...
+<etc>
+<etc>
+
+LESSONS LEARNED
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<tales of wisdom gained...>
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+ ______   ______   __   __   __       ______   _______     
+/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
+\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__  
+ \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\ 
+  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/ 
+   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
+    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
+==============================================================
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+2018-01-04
+--------------------------------------------------------------
+Shruthi :: Created uml, edited project proposal to include stats and other features, created and edited devlog
+Kenny Lin :: 
+Maryann Foley :: Edited proposal, edited devlog
+==============================================================
