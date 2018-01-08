@@ -9,9 +9,10 @@ public class Stats {
 
 	//instance vars
 	private String book;
-	private int words;
+	private int wordCount;
 	private int sentences;
 	private int userWPM;
+	private int wordTotal
 
     //better name??
 	public Stats() {
@@ -23,11 +24,11 @@ public class Stats {
 	
 	} */
 
-    //parses through String book and increments int words += based on seperators of words such as a space 
+    //parses through String book and increments int wordCount += based on seperators of words such as a space 
 /* 	public int wordCounter() {
 	
 	} */
-    //Stores length of each word and averages out total at the end of book 
+    //Adds length of each word to int wordTotal and averages out total at the end of book by doing wordTotal/wordCount
 /* 	public int wordLength() {
 	
 	} */
@@ -41,7 +42,7 @@ public class Stats {
 	
 	} */
 
-    //calculates average time needed to read the book based on user reading speed
+    //calculates average time needed to read the book based on user reading speed (userWPM)
     
 /* 	public int calcTime() {
 	
