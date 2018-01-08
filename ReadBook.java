@@ -13,6 +13,7 @@ public class ReadBook {
 	//**check this:
 	//private static final String[] WORDS = Stats.wordCounter();
 
+	//each "page" is a specified number of words that, with average word length, is calculated to fit on a default terminal window
 	//instead of making these Strings we can just make it void and SOP--evaluate return types for this and other classes
     //changes int page += 1 so the book "flips" forward
     /* 	public String next() { 
@@ -37,6 +38,7 @@ public class ReadBook {
 
     //stores int page for future visits to book
     //how does it store it tho?
+    //It will write to a file but we still have to determine exactly how we are doing that
 /* 	public void pageMarker() {
 		
 	} */
