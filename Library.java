@@ -11,16 +11,19 @@ public class Library {
 	private String[][][] _library;
 	
 	//planned for this to be an ArrayList-- benefits here of ArrayLists v regular arrays?
+	//ArrayLists would likely make it easier to do stats
 	public Library() {
 		//_library = new String[2][10][?];
 	}
-    // returns list of Statistics from Stats class based on current book 
+ 
+// returns list of Statistics from Stats class based on current book 
     /*	public String printStats() {
 		
 	} 
 
 /* 	public String toString() {
-		
+		//Benefit of having toString not print stats? What else would be printed?
+		//Possibly just print title/subgenre/author
 	} */
 
     //enters second array dimension containing the list of book subgenres
@@ -50,6 +53,9 @@ public class Library {
 	} */
 
     //allows user to input string and checks whether it matches any book titles in the third dimension
+	//will ignore any puncuation or capitalization
+    //Should we also have a searchAuthor?
+
 	/* public String searchTitle() {
 		
 	} */
