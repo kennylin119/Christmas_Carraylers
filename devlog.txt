@@ -110,4 +110,5 @@ Maryann Foley :: Edited proposal, edited devlog
 --------------------------------------------------------------
 Shruthi :: Created templates for Library, Stats, and ReadBook classes based on uml and made other minor additions to each class.
 Kenny :: Edited templates for clarity and added comments 
+Maryann :: Edited templates for clarity and added comments
 ==============================================================
