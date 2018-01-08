@@ -44,6 +44,7 @@ public class Library {
 	} */
 
     //prints time estimated time to read book based on book statistics and user reading speed
+    //uses calcTime?
 	/* public String printTime() {
 		
 	} */
