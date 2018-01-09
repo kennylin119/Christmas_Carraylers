@@ -20,7 +20,9 @@ A feature allows the user to "bookmark" their place in a given book, which they 
 
 ## INSTRUCTIONS 
 
-Once you compile and run the program on terminal, explanatory prompts will appear asking you navigate to your desired subgenre/book. Follow the instructions prompted.
+The user needs to have the Genres directory to run, as this is where all book files are stored.
+
+Once you compile and run the program on terminal, explanatory prompts will appear asking you navigate to your desired subgenre/book. The first prompt will ask you to choose a genre.  Once you do this, all subgenres in the genre will be displayed and the user will be prompted to choose one.  Once they choose the subgenre, they will be promted to choose a book.  In the book, they have the choice to advance in the book, go backward, go to a particlar page, or exit the book.
 
 TO COMPILE
 javac Library.java
