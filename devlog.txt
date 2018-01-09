@@ -117,5 +117,5 @@ Maryann :: Edited templates for clarity and added comments
 --------------------------------------------------------------
 Shruthi :: Programmed class ReadBook to be able to read a file in a subgenre (in a genre) using the Scanner class. Updated ReadMe. Reworked class structure with fellow Carraylers.
 Kenny ::  
-Maryann ::
+Maryann ::  Worked with Shruthi to make ReadBook to be able to read a file.  Updated ReadMe.  Reworked class structure with fellow Carraylers.
 ==============================================================
