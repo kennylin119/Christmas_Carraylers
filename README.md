@@ -7,7 +7,7 @@ Our project stores an inventory of books in a three-dimensional ArrayList sorted
 
 A separate class will contain methods to determine statistics. The user is asked to input their reading speed in words/minute, which will be used to calculate the estimated reading time. When the user is in a given subgenre they can choose to see either summary statistics or estimated length. If prompted, the program calculates the estimated time to read time the selected book based on the user’s input of average words per minute. The information summary displays the following statistics:
 
-average word length \n
+average word length
 average sentence length
 number of words
 number of sentences
