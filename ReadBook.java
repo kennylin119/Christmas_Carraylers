@@ -60,12 +60,11 @@ public class ReadBook {
 		    int counter = 0;
 		    String nextInputLine = sc.nextLine();
 		    lineScanner = new Scanner(nextInputLine);
-		    while (lineScanner.hasNext())
+		    while (lineScanner.hasNextLine())
 		    {
 			counter += 1;
 			System.out.print(lineScanner.next() + " "); //prints out word plus space 
 			if (counter >= 10) { //after ten words add a line break
-			    //i've noticed its not exactly ten words not sure why 
 			    counter = 0; //temp fix will have to change after we implement sentence parsing
 			    System.out.print("\n"); 
 			}
