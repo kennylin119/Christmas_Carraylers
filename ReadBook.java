@@ -53,11 +53,24 @@ public class ReadBook {
  */
  
 	public static void main (String[] args) {
- 	try {File test = new File("Genres/Nonfiction/Paine_CommonSense.txt");
+	    try {File test = new File("Genres/Nonfiction/Paine_CommonSense.txt");
 	Scanner sc = new Scanner(test);
+	Scanner lineScanner;
 		while (sc.hasNext()) {
-			System.out.print(sc.next()); }
-	}
+		    int counter = 0;
+		    String nextInputLine = sc.nextLine();
+		    lineScanner = new Scanner(nextInputLine);
+		    while (lineScanner.hasNext())
+		    {
+			counter += 1;
+			System.out.print(lineScanner.next() + " "); //prints out word plus space 
+			if (counter > 10) { //after ten words add a line break 
+			    counter = 0;
+			    System.out.print("\n");
+			}
+		    }
+		}
+	    }
 	catch (Exception FileNotFoundException) {
 		System.out.println("Sorry, file not found.");
 	}
