@@ -4,6 +4,8 @@
 // 2018-01-07
 
 //import cs1.Keyboard;
+import java.util.Scanner;
+import java.io.File;
 
 public class ReadBook {
 	
@@ -49,5 +51,16 @@ public class ReadBook {
 		
 	}
  */
+ 
+	public static void main (String[] args) {
+ 	try {File test = new File("Genres/Nonfiction/Paine_CommonSense.txt");
+	Scanner sc = new Scanner(test);
+		while (sc.hasNext()) {
+			System.out.print(sc.next()); }
+	}
+	catch (Exception FileNotFoundException) {
+		System.out.println("Sorry, file not found.");
+	}
+	}
 
 } //end class ReadBook
