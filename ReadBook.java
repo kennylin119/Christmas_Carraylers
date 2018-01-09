@@ -53,7 +53,7 @@ public class ReadBook {
  */
  
 	public static void main (String[] args) {
-	    try {File test = new File("Genres/Nonfiction/Paine_CommonSense.txt");
+	    try {File test = new File("Genres/Nonfiction/Paine_CommonSense - short.txt");
 	Scanner sc = new Scanner(test);
 	Scanner lineScanner;
 		while (sc.hasNext()) {
@@ -64,9 +64,10 @@ public class ReadBook {
 		    {
 			counter += 1;
 			System.out.print(lineScanner.next() + " "); //prints out word plus space 
-			if (counter > 10) { //after ten words add a line break 
-			    counter = 0;
-			    System.out.print("\n");
+			if (counter >= 10) { //after ten words add a line break
+			    //i've noticed its not exactly ten words not sure why 
+			    counter = 0; //temp fix will have to change after we implement sentence parsing
+			    System.out.print("\n"); 
 			}
 		    }
 		}
