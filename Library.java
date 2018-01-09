@@ -81,6 +81,7 @@ public class Library {
 		System.out.println(lib);
 		
 		//by the final version should have a single call to browse library
+		//ReadBook.main();
 		//could refer to hw48 GuessNumber
 	} */
 
