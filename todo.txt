@@ -1,0 +1,16 @@
+// Shruthi Venkata, Kenny Lin, Maryann Foley
+// APCS1 pd8
+// Final Project
+// 2018-01-10
+
+- design class ReadBook to be able to print one page at a time of a book
+	- incorporate user input feature
+	- add go to page feature
+- make sure user can navigate the directories to select a book using class Library
+- ensure that Library can make a call to the main method of ReadBook to read a book
+- ensure word and sentence number calculation of ReadBook
+- add other statistics calculation functionality of ReadBook
+- add feature that calculates amount of time to read
+- add "find" feature
+- add random book selection feature to Library
+- add book search feature to Library
