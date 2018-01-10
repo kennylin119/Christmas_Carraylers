@@ -119,3 +119,8 @@ Shruthi :: Programmed class ReadBook to be able to read a file in a subgenre (in
 Kenny ::  
 Maryann ::  Worked with Shruthi to make ReadBook to be able to read a file.  Updated ReadMe.  Reworked class structure with fellow Carraylers.
 ==============================================================
+
+2018-01-09
+--------------------------------------------------------------
+Maryann :: Made edits to readme, made final flowchart
+==============================================================
