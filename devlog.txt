@@ -27,11 +27,16 @@ Flesh out each category whenever necessary, appropriate.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To-Do List:
+Create skeleton classes of ReadBook.java and library.java
+Implement reading of txt files with proper spacing/line breaks and page system
+Add turn methods to ReadBook class
+Develop saving of page number 
+Create functionality to calculate average sentence length  
+Create functionality to calculate average word length
+Add method to print out book statistics upon request
+Develop user interaction in terminal (question prompts, ASCII art)
 Acquire txt files of books from different genres 
-Write class that makes a 3-D AL that contains all these books
-Write a (separate class??) that is able to print contents of txt files
-Before we ensure that the user can interact with this, we should make sure that we can manipulate it and see what we want by modifying ints for page numbers and whatnot within the program
-Write a class that parses through txt file and can identify end of words and sentences and has methods to calculate stats
+Final testing 
 
 First term concepts:
 
@@ -116,11 +121,16 @@ Maryann :: Edited templates for clarity and added comments
 2018-01-08
 --------------------------------------------------------------
 Shruthi :: Programmed class ReadBook to be able to read a file in a subgenre (in a genre) using the Scanner class. Updated ReadMe. Reworked class structure with fellow Carraylers.
-Kenny ::  
+Kenny ::  Edited ReadBook.java to split txt file into seperate lines 
 Maryann ::  Worked with Shruthi to make ReadBook to be able to read a file.  Updated ReadMe.  Reworked class structure with fellow Carraylers.
 ==============================================================
 
 2018-01-09
 --------------------------------------------------------------
 Maryann :: Made edits to readme, made final flowchart
+==============================================================
+
+2018-01-10
+--------------------------------------------------------------
+Kenny :: Updated to-do list
 ==============================================================
