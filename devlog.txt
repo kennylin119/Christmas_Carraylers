@@ -121,17 +121,19 @@ Maryann :: Edited templates for clarity and added comments
 2018-01-08
 --------------------------------------------------------------
 Shruthi :: Programmed class ReadBook to be able to read a file in a subgenre (in a genre) using the Scanner class. Updated ReadMe. Reworked class structure with fellow Carraylers.
-Kenny ::  Edited ReadBook.java to split txt file into seperate lines 
+Kenny ::  Edited ReadBook.java to split txt file into separate lines 
 Maryann ::  Worked with Shruthi to make ReadBook to be able to read a file.  Updated ReadMe.  Reworked class structure with fellow Carraylers.
 ==============================================================
 
 2018-01-09
 --------------------------------------------------------------
-Maryann :: Made edits to readme, made final flowchart
+Maryann :: Made edits to README, made final flowchart
+Shruthi :: Helped draft flowchart. Made to-do list.
 ==============================================================
 
 2018-01-10
 --------------------------------------------------------------
 Kenny :: Updated to-do list
 Maryann :: Updated to-do list
+Shruthi :: Updated README for clarity, updated uml diagram.
 ==============================================================
