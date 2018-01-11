@@ -14,3 +14,6 @@
 - add "find" feature
 - add random book selection feature to Library
 - add book search feature to Library
+
+Stretch(If we finish ahead of schedule):
+- add a feature that lets a user take a test to find out their reading speed
