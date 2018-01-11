@@ -133,4 +133,5 @@ Maryann :: Made edits to readme, made final flowchart
 2018-01-10
 --------------------------------------------------------------
 Kenny :: Updated to-do list
+Maryann :: Updated to-do list
 ==============================================================
