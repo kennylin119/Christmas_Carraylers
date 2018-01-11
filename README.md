@@ -30,8 +30,8 @@ Once you compile and run the program on terminal, explanatory prompts will appea
  
 OPEN A TERMINAL SESSION
 
-TO COMPILE
-javac Library.java
+TO COMPILE<br />
+`javac Library.java`
 
-TO RUN
-java Library
+TO RUN<br />
+`java Library`
