@@ -9,30 +9,30 @@ import java.io.File;
 
 public class ReadBook {
 	
-	//instance vars
-	private String book;
-	private int page;
-	//**check this:
-	//private static final String[] WORDS = Stats.wordCounter();
+    //instance vars
+    private String book;
+    private int page;
+    //**check this:
+    //private static final String[] WORDS = Stats.wordCounter();
 
-	//each "page" is a specified number of words that, with average word length, is calculated to fit on a default terminal window
-	//instead of making these Strings we can just make it void and SOP--evaluate return types for this and other classes
+    //each "page" is a specified number of words that, with average word length, is calculated to fit on a default terminal window
+    //instead of making these Strings we can just make it void and SOP--evaluate return types for this and other classes
     //changes int page += 1 so the book "flips" forward
     /* 	public String next() { 
 		
 	} */
 
     //changes int page -= 1 so the book "flips" backward
-/* 	public String back() {
+    /* 	public String back() {
 		
 	} */
 
     //flips  book to specific int page number
-/* 	public String goToPage() {
+    /* 	public String goToPage() {
 		
 	} */
 	
-	//RETURN TYPE? will it return a page number so that the user can check?
+    //RETURN TYPE? will it return a page number so that the user can check?
     //int? maybe a string containing all listing of word 
     /* 	public String findWord() {
 		
@@ -41,39 +41,64 @@ public class ReadBook {
     //stores int page for future visits to book
     //how does it store it tho?
     //It will write to a file but we still have to determine exactly how we are doing that
-/* 	public void pageMarker() {
+    /* 	public void pageMarker() {
 		
 	} */
 
     //flips book to int page stored by pageMarker
     //we can prob build this one off goToPage()
-/* 	public String returnToPage() {
+    /* 	public String returnToPage() {
 		
 	}
- */
+    */
  
-	public static void main (String[] args) {
-	    try {File test = new File("Genres/Nonfiction/Paine_CommonSense - short.txt");
-	Scanner sc = new Scanner(test);
-	Scanner lineScanner;
-		while (sc.hasNext()) {
-		    int counter = 0;
-		    String nextInputLine = sc.nextLine();
-		    lineScanner = new Scanner(nextInputLine);
-		    while (lineScanner.hasNextLine())
+    public static int countWords(String text){
+
+	int counter  = 0;
+	boolean word = false;
+	int endOfLine = text.length() - 1;
+
+	for (int i = 0; i < text.length(); i++) {
+	    // if the char is a letter, word = true.
+	    if (Character.isLetter(text.charAt(i)) && i != endOfLine) {
+		word = true;
+		// if char isn't a letter and there have been letters before,
+		// counter goes up.
+	    } else if (!Character.isLetter(text.charAt(i)) && word) {
+		counter += 1;
+		word = false;
+		// last word of String; if it doesn't end with a non letter, it
+		// wouldn't count without this.
+	    } else if (Character.isLetter(text.charAt(i)) && i == endOfLine) {
+		counter += 1;
+	    }
+	}
+	return counter;
+    }
+    public static void main (String[] args) {
+	try {File test = new File("Genres/Nonfiction/Paine_CommonSense - short.txt");
+	    Scanner sc = new Scanner(test);
+	    Scanner lineScanner;
+	    String text = ""; 
+	    while (sc.hasNext()) {
+		int counter = 0;
+		String nextInputLine = sc.nextLine();
+		lineScanner = new Scanner(nextInputLine);
+		while (lineScanner.hasNextLine())
 		    {
 			counter += 1;
-			System.out.print(lineScanner.next() + " "); //prints out word plus space 
+			text += lineScanner.next() + " "; //prints out word plus space 
 			if (counter >= 10) { //after ten words add a line break
 			    counter = 0; //temp fix will have to change after we implement sentence parsing
-			    System.out.print("\n"); 
+			    text += "\n"; 
 			}
 		    }
-		}
-	    }
+		    }
+	    System.out.println(countWords(text));
+	}
 	catch (Exception FileNotFoundException) {
-		System.out.println("Sorry, file not found.");
+	    System.out.println("Sorry, file not found.");
 	}
-	}
+    }
 
 } //end class ReadBook
