@@ -17,10 +17,10 @@ public class ReadBook {
 	
 	//constructor
 	
-	public ReadBook(String bookChoice) {
+	public ReadBook(String genre, String subgenre, String title) {
 		
 		try {
-		File text = new File("Genres/Nonfiction/" + bookChoice);
+		File text = new File("Genres/" + genre + "/" + subgenre + "/" + title);
 		_book = new Scanner(text);
 		}
 		
@@ -110,11 +110,11 @@ public class ReadBook {
 		return _counter;
 	}
 	
-    public static void main (String[] args) {
-
+    /* public static void main (String[] args) {
+		
 		ReadBook blue = new ReadBook("Paine_CommonSense - short.txt");
 		System.out.println();
-		System.out.println(blue.wordCounter());
+		System.out.println(blue.wordCounter()); */
 		
 	/* Scanner lineScanner;
 	    String text = ""; 
@@ -134,6 +134,6 @@ public class ReadBook {
 		    }
 	    System.out.println(countWords(text));
 	} */
-    }
+    //}
 
 } //end class ReadBook

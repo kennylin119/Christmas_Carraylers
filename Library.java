@@ -118,6 +118,10 @@ public class Library {
 		System.out.println(lib.get2d(lib._genre));
 		System.out.println(lib.get3d(lib._subgenre));
 
+		ReadBook blue = new ReadBook(lib._genre, lib._subgenre, lib._title);
+		System.out.println();
+		System.out.println(blue.wordCounter());
+
 /* 		System.out.println("What subgenre of books would you like to read?");
 		String subgenre = Keyboard.readString(); //user inputs desired subgenre 	
 		lib.enter2d(subgenre); //enters inputed subgenre
