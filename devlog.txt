@@ -137,3 +137,7 @@ Kenny :: Updated to-do list
 Maryann :: Updated to-do list
 Shruthi :: Updated README for clarity, updated uml diagram.
 ==============================================================
+
+2018-01-14
+--------------------------------------------------------------
+Shruthi :: Updated class ReadBook to have a Scanner instance variable representing the book to be read, and the corresponding wordCounter method.
