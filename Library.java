@@ -40,7 +40,7 @@ public class Library {
 		System.out.println("Pick a genre from the below list by entering the corresponding number and hitting enter.\n");
 		for (String genre : genres.list()) {
 			System.out.println(i + " " + genre);
-			i++;
+			i+= 1;
 		}
 		System.out.println();
 		_input = Keyboard.readString(); //user inputs desired subgenre
@@ -61,7 +61,7 @@ public class Library {
 		System.out.println("Pick a subgenre from the below list by entering the corresponding number and hitting enter.\n");
 		for (String subgenre : subgenres.list()) {
 			System.out.println(i + " " + subgenre);
-			i++;
+			i+= 1;
 		}
 		System.out.println();
 		_input = Keyboard.readString(); //user inputs desired subgenre
@@ -82,7 +82,7 @@ public class Library {
 		System.out.println("Pick a title from the below list by entering the corresponding number and hitting enter.\n");
 		for (String title : titles.list()) {
 			System.out.println(i + " " + title);
-			i++;
+			i+= 1;
 		}
 		System.out.println();
 		_input = Keyboard.readString(); //user inputs desired book

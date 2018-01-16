@@ -3,7 +3,7 @@
 // Final Project
 // 2018-01-07
 
-//import cs1.Keyboard;
+import cs1.Keyboard;
 import java.util.Scanner;
 import java.io.File;
 
@@ -44,7 +44,7 @@ public class ReadBook {
 			return "The end - you are on the last page!";
 		}
 		else {
-			_page++;
+			_page+= 1;
 			}
 		System.out.println("going to next");
 		return printPage();
@@ -81,12 +81,12 @@ public class ReadBook {
 			while( ctr < ctrStart ) {
 				_book2.next();
 				System.out.println("nw");
-				ctr++;
+				ctr+= 1;
 			}
  			while( ctr > ctrStart && ctr < ctrEnd ) {
  				text += _book2.next() + " "; //prints out word plus space
 				System.out.println("nc");
-				ctr++;
+				ctr+= 1;
  			}
 		}
  		return text;
@@ -123,7 +123,7 @@ public class ReadBook {
 			_book.next();
 			//comment out the previous line and uncomment the following line if you would also like to see the text (a temporary fix)
 			//System.out.print(_book.next() + " ");
-			_counter++;
+			_counter+= 1;
 			}
 			//_book.close();
 		return _counter;
