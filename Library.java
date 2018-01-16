@@ -121,6 +121,14 @@ public class Library {
 		ReadBook blue = new ReadBook(lib._genre, lib._subgenre, lib._title);
 		System.out.println();
 		System.out.println(blue.wordCounter());
+		System.out.println(blue.calcPgs());
+		System.out.println("\nEnter next or back to change pages");
+		if (Keyboard.readString().equals("next")) {
+			System.out.println(blue.next());
+		}
+		else if (Keyboard.readString().equals("back")) {
+			System.out.println(blue.back());
+		}
 
 /* 		System.out.println("What subgenre of books would you like to read?");
 		String subgenre = Keyboard.readString(); //user inputs desired subgenre 	

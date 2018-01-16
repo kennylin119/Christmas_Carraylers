@@ -11,9 +11,12 @@ public class ReadBook {
 	
     //instance vars
 	
-	public Scanner _book;
+	private Scanner _book;
+	private Scanner _book2;
     private int _page;
+	private int _numPgs;
 	public int _counter;
+	private double _avgWordLength;
 	
 	//constructor
 	
@@ -22,6 +25,7 @@ public class ReadBook {
 		try {
 		File text = new File("Genres/" + genre + "/" + subgenre + "/" + title);
 		_book = new Scanner(text);
+		_book2 = new Scanner(text);
 		}
 		
 		catch (Exception FileNotFoundException) {
@@ -35,20 +39,58 @@ public class ReadBook {
     //each "page" is a specified number of words that, with average word length, is calculated to fit on a default terminal window
     //instead of making these Strings we can just make it void and SOP--evaluate return types for this and other classes
     //changes int page += 1 so the book "flips" forward
-    /* 	public String next() { 
-		
-	} */
+    public String next() { 
+		if (_page==_numPgs) {
+			return "The end - you are on the last page!";
+		}
+		else {
+			_page++;
+			}
+		System.out.println("going to next");
+		return printPage();
+	}
 
     //changes int page -= 1 so the book "flips" backward
-    	public String back() {
+    public String back() {
 		if (_page==0) {
 			return "You are on the first page.";
 		}
 		else {
 			_page--;
-			return "";
 			}
+		System.out.println("going to previous");
+		return printPage();
 		}
+		
+	public int calcPgs() {
+		if (wordCounter()%350 == 0) {
+			_numPgs = wordCounter()/350;
+		}
+		else {
+			_numPgs = wordCounter()/350 + 1;
+		}
+		return _numPgs;
+	}
+		
+ 	public String printPage(){
+ 	    String text = "";
+			int ctrStart = (_page-1)*350;
+			int ctrEnd = (_page)*350;
+			int ctr = 0;
+ 	    while (_book2.hasNext()) {
+			while( ctr < ctrStart ) {
+				_book2.next();
+				System.out.println("nw");
+				ctr++;
+			}
+ 			while( ctr > ctrStart && ctr < ctrEnd ) {
+ 				text += _book2.next() + " "; //prints out word plus space
+				System.out.println("nc");
+				ctr++;
+ 			}
+		}
+ 		return text;
+  	}
 
     //flips  book to specific int page number
     /* 	public String goToPage() {
@@ -74,30 +116,6 @@ public class ReadBook {
 		
 	}
     */
- 
-/*     public int countWords(String text){
-		boolean word = false;
-		int endOfLine = text.length() - 1;
-		//could we make this neater using Character.isWhitespace() ?
-		for (int i = 0; i < text.length(); i++) {
-			// if the char is a letter, word = true.
-			if (Character.isLetter(text.charAt(i)) && i != endOfLine) {
-				word = true;
-			// if char isn't a letter and there have been letters before,
-			// counter goes up.
-			}
-			else if (!Character.isLetter(text.charAt(i)) && word) {
-				_counter += 1;
-				word = false;
-			// last word of String; if it doesn't end with a non letter, it
-			// wouldn't count without this.
-			}
-			else if (Character.isLetter(text.charAt(i)) && i == endOfLine) {
-				_counter += 1;
-			}
-		}
-		return _counter;
-    } */
 	
 	//likely oversimplified but it works!
  	public int wordCounter() {
@@ -107,6 +125,7 @@ public class ReadBook {
 			//System.out.print(_book.next() + " ");
 			_counter++;
 			}
+			//_book.close();
 		return _counter;
 	}
 	
