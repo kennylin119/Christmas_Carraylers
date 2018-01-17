@@ -152,3 +152,8 @@ Shruthi :: Modified class Library so that the user can choose any book within th
 --------------------------------------------------------------
 Shruthi :: Modified class Library and ReadBook so that the user can print the contents of a book by entering "next" or "back". Also edited goToPage but not yet functional.
 ==============================================================
+
+2018-01-16
+--------------------------------------------------------------
+Shruthi :: Added functionality to allow user to go to any page, to exit a book, and to go back to previous layers/dimensions (i.e. go back to genres from subgenres)
+==============================================================
