@@ -27,7 +27,6 @@ public class Library {
     /*	public String printStats() {
 		
 	} 
-
 /* 	public String toString() {
 		//Benefit of having toString not print stats? What else would be printed?
 		//Possibly just print title/subgenre/author
@@ -141,11 +140,9 @@ public class Library {
 /* 		System.out.println("What subgenre of books would you like to read?");
 		String subgenre = Keyboard.readString(); //user inputs desired subgenre 	
 		lib.enter2d(subgenre); //enters inputed subgenre
-
 		System.out.println(lib); //prints out list of book titles within subgenre
 		String title = Keyboard.readString(); //user inputs desired book title 
 		lib.enter3d(title);//enters inputed book 
-
 		System.out.println(lib); // prints out book string
 		lib.backTo2d();
 		System.out.println(lib);
