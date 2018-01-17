@@ -10,9 +10,7 @@ import java.io.File;
 public class ReadBook {
 	
     //instance vars
-	
-	private Scanner _book;
-	private Scanner _bookR;
+
 	private File _text;
     private int _page;
 	private int _numPgs;
@@ -23,20 +21,23 @@ public class ReadBook {
     private int _avgWL;
     private int _avgSL;
     private String _textStr; //string version of text
+	private String _genre;
+	private String _subgenre;
+	private String _title;
 	
 	//constructor
 	
 	public ReadBook(String genre, String subgenre, String title) {
-		
-		try {
+		_genre = genre;
+		_subgenre = subgenre;
+		_title = title;
+		/* try {
 		_text = new File("Genres/" + genre + "/" + subgenre + "/" + title);
-		_book = new Scanner(_text);
-		_bookR = new Scanner(_text);
 		}
 		
 		catch (Exception FileNotFoundException) {
 			System.out.println("Sorry, file not found.");
-		}
+		} */
 		_wordCount = 0;
 		_page = 0;
 		_numPgs = calcPgs();
@@ -80,6 +81,10 @@ public class ReadBook {
 	}
 		
  	public void printPage(){
+		try {
+			_text = new File("Genres/" + _genre + "/" + _subgenre + "/" + _title);
+			Scanner book = new Scanner(_text);
+		
  	    String text = "";
 			int ctrStart = (_page-1)*350;
 			System.out.println("ctrStart is " + ctrStart);
@@ -89,17 +94,21 @@ public class ReadBook {
 		System.out.println(" ");
 		System.out.println("Page "+ _page );
 		System.out.println(" ");
- 	    while (_bookR.hasNext() && ctr < ctrEnd) {
+ 	    while (book.hasNext() && ctr < ctrEnd) {
 			if( ctr < ctrStart ) {
-				_bookR.next();
-				/*_text += _bookR.next();
+				book.next();
+				/*_text += book.next();
 				System.out.println("Hello");
 				System.out.println(_text);*/    
 			}
  			else if( ctr > ctrStart && ctr < ctrEnd ) {
- 				System.out.print(_bookR.next() + " "); //prints out word plus space
+ 				System.out.print(book.next() + " "); //prints out word plus space
  			}
 			ctr+=1;
+		}
+		book.close();}
+		catch (Exception FileNotFoundException) {
+			System.out.println("Sorry, file not found.");
 		}
 
   	}
@@ -139,16 +148,25 @@ public class ReadBook {
 	
 	//likely oversimplified but it works!
  	public int wordCounter() {
-		while (_book.hasNext()) {
-			_textStr += _book.next();
+		try {
+		_text = new File("Genres/" + _genre + "/" + _subgenre + "/" + _title);
+		Scanner book = new Scanner(_text);
+		while (book.hasNext()) {
+			_textStr += book.next();
 			//System.out.println(_textStr);
 			//comment out the previous line and uncomment the following line if you would also like to see the text (a temporary fix)
 			//System.out.print(_book.next() + " ");
 			_wordCount++;
 			}
-			//_book.close();
-		return _wordCount;
+			book.close();
+			return _wordCount;
+		}
+		catch (Exception FileNotFoundException) {
+			System.out.println("Sorry, file not found.");
+			return 0;
+		}
 	}
+	
     public int numSentences() {
      _charCount = 0;
      _sentenceCount = 0;
