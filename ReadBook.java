@@ -95,8 +95,9 @@ public class ReadBook {
     //flips  book to specific int page number
     public void goToPage(int pg) {
 		if (pg < _numPgs) {
-		_page = pg;
-		printPage();
+			System.out.println("HEEELLO");
+			_page = pg;
+			printPage();
 		}
 		else {
 			System.out.println("This page does not exist");

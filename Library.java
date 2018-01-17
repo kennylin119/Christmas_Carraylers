@@ -120,8 +120,9 @@ public class Library {
 
 		ReadBook blue = new ReadBook(lib._genre, lib._subgenre, lib._title);
 		System.out.println();
-		System.out.println(blue.wordCounter());
-		System.out.println(blue.calcPgs());
+		System.out.println("There are "+blue.wordCounter()+" in " + lib._title);
+		System.out.println("There are "+blue.calcPgs()+" in " + lib._title);
+		while(true){
 		System.out.println("\nEnter next or back to change pages, or go to a page by entering a page number");
 		if (Keyboard.readString().equals("next")) {
 			blue.next();
@@ -133,6 +134,8 @@ public class Library {
 		else {
 			blue.goToPage(Integer.parseInt(Keyboard.readString()));
 		}
+		System.out.println("One loop dones");
+	}
 		
 
 /* 		System.out.println("What subgenre of books would you like to read?");
