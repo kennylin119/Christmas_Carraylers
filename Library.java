@@ -9,19 +9,11 @@ import java.io.File;
 
 public class Library {
 	//instance vars
-	//private String[][][] _library;
 	private String _input;
 	private String _genre;
 	private String _subgenre;
 	private String _title;
 	private int _wpm;
-	
-	//planned for this to be an ArrayList-- benefits here of ArrayLists v regular arrays?
-	//ArrayLists would likely make it easier to do stats
-	public Library() {
-		//String[][][] = _library = ;
-		//_library = new String[2][10][?];
-	}
  
 // returns list of Statistics from Stats class based on current book 
     /*public void printStats() {
@@ -108,8 +100,6 @@ public class Library {
 
     //allows user to input string and checks whether it matches any book titles in the third dimension
 	//will ignore any punctuation or capitalization
-    //Should we also have a searchAuthor?
-
 	/* public String searchTitle() {
 		
 	} */
@@ -123,12 +113,13 @@ public class Library {
 		System.out.println(lib.get3d(lib._subgenre));
 
 		ReadBook blue = new ReadBook(lib._genre, lib._subgenre, lib._title);
+		blue.statCalc();
 		System.out.println();
 		System.out.println("There are "+blue.wordCounter()+" words in " + lib._title);
 		System.out.println("There are "+blue.calcPgs()+" pages in " + lib._title);
 		System.out.println("There are "+blue.numSentences()+ " sentences in " + lib._title);
 		System.out.println("The average word length is "+blue.avgWordLength()+" in " + lib._title);
-		System.out.println("The average word sentence length is "+blue.avgSentenceLength()+" in " + lib._title);		    
+		System.out.println("The average sentence length is "+blue.avgSentenceLength()+" in " + lib._title);		    
 		while(true){
 		System.out.println("\nEnter next or back to change pages, or go to a page by entering a page number");
 		String input = Keyboard.readString();
@@ -146,23 +137,6 @@ public class Library {
 			//System.out.println("back");
 			blue.back();
 		}
-
-	       
-/* 		System.out.println("What subgenre of books would you like to read?");
-		String subgenre = Keyboard.readString(); //user inputs desired subgenre 	
-		lib.enter2d(subgenre); //enters inputed subgenre
-		System.out.println(lib); //prints out list of book titles within subgenre
-		String title = Keyboard.readString(); //user inputs desired book title 
-		lib.enter3d(title);//enters inputed book 
-		System.out.println(lib); // prints out book string
-		lib.backTo2d();
-		System.out.println(lib);
-		lib.backTo1d();
-		System.out.println(lib); */
-		
-		//by the final version should have a single call to browse library
-		//ReadBook.main();
-		//could refer to hw48 GuessNumber
 	}
 
 

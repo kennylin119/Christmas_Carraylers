@@ -17,7 +17,7 @@ public class ReadBook {
     private int _page;
 	private int _numPgs;
 	public int _wordCount;
-	private double _avgWordLength;
+    //private double _avgWordLength;
     private int _charCount;
     private int _sentenceCount;
     private int _avgWL;
@@ -101,7 +101,6 @@ public class ReadBook {
  			}
 			ctr+=1;
 		}
-
   	}
 
     //flips  book to specific int page number
@@ -138,20 +137,24 @@ public class ReadBook {
     */
 	
 	//likely oversimplified but it works!
- 	public int wordCounter() {
+    
+    public void scannerToString() {
 		while (_book.hasNext()) {
 			_textStr += _book.next();
+			_wordCount += 1;
 			//System.out.println(_textStr);
 			//comment out the previous line and uncomment the following line if you would also like to see the text (a temporary fix)
 			//System.out.print(_book.next() + " ");
-			_wordCount++;
 			}
 			//_book.close();
-		return _wordCount;
-	}
-    public int numSentences() {
+    }
+    
+    public void statCalc() {
      _charCount = 0;
      _sentenceCount = 0;
+     _wordCount = 0;
+     scannerToString();
+     //System.out.println(_textStr);
     for (int i = 0; i < _textStr.length() - 1; i++) {
 	String letter = _textStr.substring(i, i += 1);
 	if (letter.matches("[a-zA-Z]+"))// set of all alphabets
@@ -161,18 +164,26 @@ public class ReadBook {
 	if (letter.matches("[.?!]"))
 	    {
 		_sentenceCount += 1; //rough estimate of number of sentences
+		//System.out.println(_charCount);
 	    }
-    } return _sentenceCount;
+    }
 }
+    public int numSentences() {
+	return _sentenceCount;
+    }
+    public int wordCounter() {
+        return _wordCount;
+    }
 
 public int avgWordLength(){
-     return _avgWL = _charCount/_wordCount; 
+     System.out.println("testing " + _charCount + " characters"); 
+     return  _charCount/_wordCount; 
 }
 
     public int avgSentenceLength()
     {
 	int charsInSentence = _charCount/_sentenceCount;
-	 return _avgSL = charsInSentence / _avgWL;
+	return  charsInSentence; /// (_charCount/_wordCount) ;
     }
 
 } //end class ReadBook
