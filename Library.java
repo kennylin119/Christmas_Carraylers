@@ -40,7 +40,7 @@ public class Library {
 		System.out.println("Pick a genre from the below list by entering the corresponding number and hitting enter.\n");
 		for (String genre : genres.list()) {
 			System.out.println(i + " " + genre);
-			i+= 1;
+			i++;
 		}
 		System.out.println();
 		_input = Keyboard.readString(); //user inputs desired subgenre
@@ -61,7 +61,7 @@ public class Library {
 		System.out.println("Pick a subgenre from the below list by entering the corresponding number and hitting enter.\n");
 		for (String subgenre : subgenres.list()) {
 			System.out.println(i + " " + subgenre);
-			i+= 1;
+			i++;
 		}
 		System.out.println();
 		_input = Keyboard.readString(); //user inputs desired subgenre
@@ -82,7 +82,7 @@ public class Library {
 		System.out.println("Pick a title from the below list by entering the corresponding number and hitting enter.\n");
 		for (String title : titles.list()) {
 			System.out.println(i + " " + title);
-			i+= 1;
+			i++;
 		}
 		System.out.println();
 		_input = Keyboard.readString(); //user inputs desired book
@@ -122,13 +122,18 @@ public class Library {
 		System.out.println();
 		System.out.println(blue.wordCounter());
 		System.out.println(blue.calcPgs());
-		System.out.println("\nEnter next or back to change pages");
+		System.out.println("\nEnter next or back to change pages, or go to a page by entering a page number");
 		if (Keyboard.readString().equals("next")) {
-			System.out.println(blue.next());
+			blue.next();
 		}
 		else if (Keyboard.readString().equals("back")) {
-			System.out.println(blue.back());
+			blue.back();
 		}
+		//just a test, has to actually take any number input:
+		else {
+			blue.goToPage(Integer.parseInt(Keyboard.readString()));
+		}
+		
 
 /* 		System.out.println("What subgenre of books would you like to read?");
 		String subgenre = Keyboard.readString(); //user inputs desired subgenre 	

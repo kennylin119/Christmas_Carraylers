@@ -147,3 +147,8 @@ Shruthi :: Updated class ReadBook to have a Scanner instance variable representi
 --------------------------------------------------------------
 Shruthi :: Modified class Library so that the user can choose any book within the tree of directories under "Genres," and so that choosing this book allows you to create an instance of ReadBook for this chosen book to access any of ReadBook's methods.
 ==============================================================
+
+2018-01-16
+--------------------------------------------------------------
+Shruthi :: Modified class Library and ReadBook so that the user can print the contents of a book by entering "next" or "back". Also edited goToPage but not yet functional.
+==============================================================
