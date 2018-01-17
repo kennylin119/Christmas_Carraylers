@@ -106,15 +106,11 @@ public class ReadBook {
 		}
 		ctr+=1;
 	    }
-	    <<<<<<< HEAD
-			=======
-			book.close();}
+	    book.close();}
 	catch (Exception FileNotFoundException) {
 	    System.out.println("Sorry, file not found.");
 	}
-
-	>>>>>>> 9bb3ac39c356280741c298633696cd48ea604dff
-		    }
+    }
 
     //flips  book to specific int page number
     public void goToPage(int pg) {
@@ -160,6 +156,7 @@ public class ReadBook {
 		//System.out.println(_textStr);
 		//comment out the previous line and uncomment the following line if you would also like to see the text (a temporary fix)
 		//System.out.print(_book.next() + " ");
+		_wordCount += 1;
 	    }
 	    book.close();
 	    return _wordCount;
@@ -170,11 +167,10 @@ public class ReadBook {
 	}
     }
 	
-    public int statCalc() {
+    public void statCalc() {
 	_charCount = 0;
 	_sentenceCount = 0;
-	_wordCount = 0;
-	scannerToString();
+	wordCounter();
 	//System.out.println(_textStr);
 	for (int i = 0; i < _textStr.length() - 1; i++) {
 	    String letter = _textStr.substring(i, i += 1);
@@ -192,10 +188,6 @@ public class ReadBook {
     public int numSentences() {
 	return _sentenceCount;
     }
-    public int wordCounter() {
-        return _wordCount;
-    }
-
     public int avgWordLength(){
 	System.out.println("testing " + _charCount + " characters"); 
 	return  _charCount/_wordCount; 
