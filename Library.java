@@ -15,29 +15,7 @@ public class Library {
 	private String _subgenre;
 	private String _title;
 	private int _wpm;
-	
-	//planned for this to be an ArrayList-- benefits here of ArrayLists v regular arrays?
-	//ArrayLists would likely make it easier to do stats
-	public Library() {
-		//String[][][] = _library = ;
-		//_library = new String[2][10][?];
-	}
  
-// returns list of Statistics from Stats class based on current book 
-    /*public void printStats() {
-		System.out.println();
-		System.out.println("There are "+blue.wordCounter()+" words in " + lib._title);
-		System.out.println("There are "+blue.calcPgs()+" pages in " + lib._title);
-		System.out.println("There are "+blue.numSentences()+ " sentences in " + lib._title);
-		System.out.println("The average word length is "+blue.avgWordLength()+" in " + lib._title);
-		System.out.println("The average word sentence length is "+blue.avgSentenceLength()+" in " + lib._title);
-		} */
-/* 	public String toString() {
-		//Benefit of having toString not print stats? What else would be printed?
-		//Possibly just print title/subgenre/author
-		} */
-
-    //
  	public String get1d() {
 		File genres = new File("Genres");
 		int i = 1;
@@ -62,14 +40,17 @@ public class Library {
  	public String get2d(String genre) {
 		File subgenres = new File("Genres/" + _genre);
 		int i = 1;
-		System.out.println("Pick a subgenre from the below list by entering the corresponding number and hitting enter.\n");
+		System.out.println("Pick a subgenre from the below list by entering the corresponding number and hitting enter. Or go back by entering 'back'.\n");
 		for (String subgenre : subgenres.list()) {
 			System.out.println(i + " " + subgenre);
 			i++;
 		}
 		System.out.println();
 		_input = Keyboard.readString(); //user inputs desired subgenre
-		if (Integer.parseInt(_input)-1 < i) {
+		if (_input.equals("back")) {
+			return get1d();
+		}
+		else if (Integer.parseInt(_input)-1 < i) {
 			_subgenre = subgenres.list()[Integer.parseInt(_input)-1];
 			return "You chose " + _subgenre;
 		}
@@ -83,14 +64,17 @@ public class Library {
 	public String get3d(String subgenre) {
 		File titles = new File("Genres/" + _genre + "/" + _subgenre);
 		int i = 1;
-		System.out.println("Pick a title from the below list by entering the corresponding number and hitting enter.\n");
+		System.out.println("Pick a title from the below list by entering the corresponding number and hitting enter. Or go back by entering 'back'\n");
 		for (String title : titles.list()) {
 			System.out.println(i + " " + title);
 			i++;
 		}
 		System.out.println();
 		_input = Keyboard.readString(); //user inputs desired book
-		if (Integer.parseInt(_input)-1 < i) {
+		if (_input.equals("back")) {
+			return get2d(_genre);
+		}
+		else if (Integer.parseInt(_input)-1 < i) {
 			_title = titles.list()[Integer.parseInt(_input)-1];
 			return "You chose " + _title;
 		}
@@ -99,71 +83,21 @@ public class Library {
 			return get3d(_subgenre);
 		}
 	}
-
-    //prints time estimated time to read book based on book statistics and user reading speed
-    //uses calcTime?
-	/* public String printTime() {
-		
-	} */
-
-    //allows user to input string and checks whether it matches any book titles in the third dimension
-	//will ignore any punctuation or capitalization
-    //Should we also have a searchAuthor?
-
-	/* public String searchTitle() {
-		
-	} */
 	
 //main method
+	//tested with Common_Sense demo
  	public static void main (String[] args) {
 		Library lib = new Library();
-		//lib.pickBook();
 		System.out.println(lib.get1d());
 		System.out.println(lib.get2d(lib._genre));
 		System.out.println(lib.get3d(lib._subgenre));
 
-		ReadBook blue = new ReadBook(lib._genre, lib._subgenre, lib._title);
-		System.out.println();
-		System.out.println("There are "+blue.wordCounter()+" words in " + lib._title);
-		System.out.println("There are "+blue.calcPgs()+" pages in " + lib._title);
-		System.out.println("There are "+blue.numSentences()+ " sentences in " + lib._title);
-		System.out.println("The average word length is "+blue.avgWordLength()+" in " + lib._title);
-		System.out.println("The average word sentence length is "+blue.avgSentenceLength()+" in " + lib._title);		    
-		while(true){
-		System.out.println("\nEnter next or back to change pages, or go to a page by entering a page number");
-		String input = Keyboard.readString();
-		try{
-			blue.goToPage(Integer.parseInt(input));
+		while(true) {
+			ReadBook blue = new ReadBook(lib._genre, lib._subgenre, lib._title);
+			blue.viewStats();
+			System.out.println(lib.get3d(lib._subgenre));
 		}
-		catch (NumberFormatException e){}
-		if (input.equals("next")) {
-			//System.out.println("next");
-			blue.next();
-			//System.out.println("Completed next");
-		}
-
-		else if (input.equals("back")) {
-			//System.out.println("back");
-			blue.back();
-		}
-
-	       
-/* 		System.out.println("What subgenre of books would you like to read?");
-		String subgenre = Keyboard.readString(); //user inputs desired subgenre 	
-		lib.enter2d(subgenre); //enters inputed subgenre
-		System.out.println(lib); //prints out list of book titles within subgenre
-		String title = Keyboard.readString(); //user inputs desired book title 
-		lib.enter3d(title);//enters inputed book 
-		System.out.println(lib); // prints out book string
-		lib.backTo2d();
-		System.out.println(lib);
-		lib.backTo1d();
-		System.out.println(lib); */
-		
-		//by the final version should have a single call to browse library
-		//ReadBook.main();
-		//could refer to hw48 GuessNumber
 	}
 
 
-}} //end class Library
+} //end class Library

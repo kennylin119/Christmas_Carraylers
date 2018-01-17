@@ -6,6 +6,7 @@
 //import cs1.Keyboard;
 import java.util.Scanner;
 import java.io.File;
+import cs1.Keyboard;
 
 public class ReadBook {
 	
@@ -24,6 +25,7 @@ public class ReadBook {
 	private String _genre;
 	private String _subgenre;
 	private String _title;
+	private String _input;
 	
 	//constructor
 	
@@ -40,28 +42,30 @@ public class ReadBook {
     //each "page" is a specified number of words that, with average word length, is calculated to fit on a default terminal window
     //instead of making these Strings we can just make it void and SOP--evaluate return types for this and other classes
     //changes int page += 1 so the book "flips" forward
-    public void next() {
+    public String next() {
+		String out = "";
 		if (_page>=_numPgs) {
-			System.out.println( "The end - you are on the last page!");
+			out = "The end - you are on the last page!";
 		}
 		else {
 			_page+=1;
-			System.out.println("next page: " + _page);
-			printPage();
+			out = "next page: " + _page + printPage();
 			}
-		}
+		return out;
+	}
 
     //changes int page -= 1 so the book "flips" backward
-    public void back() {
+    public String back() {
+		String out = "";
 		if (_page<=1) {
-			System.out.println("You are on the first page.");
+			out = "You are on the first page.";
 		}
 		else {
 			_page-=1;
-			System.out.println("previous page: " + _page);
-			printPage();
+			out = "previous page: " + _page + printPage();
 			}
-		}
+		return out;
+	}
 		
 	public int calcPgs() {
 		if (_wordCount%350 == 0) {
@@ -73,67 +77,47 @@ public class ReadBook {
 		return _numPgs;
 	}
 		
- 	public void printPage(){
+ 	public String printPage(){
+		String out = "";
 		try {
 			File txt = new File("Genres/" + _genre + "/" + _subgenre + "/" + _title);
 			Scanner book = new Scanner(txt);
 			int ctrStart = (_page-1)*350;
-			System.out.println("ctrStart is " + ctrStart);
+			//System.out.println("ctrStart is " + ctrStart);
 			int ctrEnd = (_page)*350;
-			System.out.println("ctrEnd is " + ctrEnd);
+			//System.out.println("ctrEnd is " + ctrEnd);
 			int ctr = 0;
 		System.out.println(" ");
 		System.out.println("Page "+ _page );
 		System.out.println(" ");
  	    while (book.hasNext() && ctr < ctrEnd) {
 			if( ctr < ctrStart ) {
-				book.next();
-				/*_text += book.next();
-				System.out.println("Hello");
-				System.out.println(_text);*/    
+				book.next(); 
 			}
  			else if( ctr > ctrStart && ctr < ctrEnd ) {
- 				System.out.print(book.next() + " "); //prints out word plus space
+ 				out += book.next() + " "; //prints out word plus space
  			}
 			ctr+=1;
 		}
-		book.close();}
+		book.close();
+		return out;
+		}
 		catch (Exception FileNotFoundException) {
-			System.out.println("Sorry, file not found.");
+			return "\tSorry, file not found.\n";
 		}
 
   	}
 
     //flips  book to specific int page number
-    public void goToPage(int pg) {
-		if (pg < _numPgs) {
+    public String goToPage(int pg) {
+		if (pg <= _numPgs) {
 			_page = pg;
-			printPage();
+			return printPage();
 		}
 		else {
-			System.out.println("This page does not exist");
+			return "\tThis page does not exist\n";
 		}
 	}
-	
-    //RETURN TYPE? will it return a page number so that the user can check?
-    //int? maybe a string containing all listing of word 
-    /* 	public String findWord() {
-		
-	} */
-
-    //stores int page for future visits to book
-    //how does it store it tho?
-    //It will write to a file but we still have to determine exactly how we are doing that
-    /* 	public void pageMarker() {
-		
-	} */
-
-    //flips book to int page stored by pageMarker
-    //we can prob build this one off goToPage()
-    /* 	public String returnToPage() {
-		
-	}
-    */
 	
 	//likely oversimplified but it works!
  	public int wordCounter() {
@@ -153,7 +137,7 @@ public class ReadBook {
 			return _wordCount;
 		}
 		catch (Exception FileNotFoundException) {
-			System.out.println("Sorry, file not found.");
+			System.out.println("\tSorry, file not found.");
 			return 0;
 		}
 	}
@@ -181,5 +165,49 @@ public class ReadBook {
 		int charsInSentence = _charCount/_sentenceCount;
 		 return _avgSL = charsInSentence / _avgWL;
 		}
+	
+	//asks user whether to view Statistics
+	public void viewStats() {
+		System.out.println();
+		System.out.println("Would you like to view the statistics for this book? Please enter 'yes' or 'no'.");
+		_input = Keyboard.readString();
+		if (_input.equals("yes")) {
+			System.out.println("In " + _title + ": ");
+			System.out.println("There are "+ wordCounter() + " words." );
+			System.out.println("There are "+ calcPgs() + " pages");
+			System.out.println("There are " + numSentences()+ " sentences.");
+			System.out.println("The average word length is "+ avgWordLength() + ".");
+			System.out.println("The average word sentence length is "+ avgSentenceLength() + ".");
+			read();
+		}
+		//skips Stats
+		else read();
+	}
+	
+	//uses next(), back(), goToPage() to flip through book
+	public void read() {
+		System.out.println("\nYou are now reading " + _title + ". Exit at any time by entering 'x'.");
+		while(true){
+			System.out.println("\nEnter next or back to change pages, or go to a page by entering a page number");
+			_input = Keyboard.readString();
+			if (_input.equals("x")) {
+				break;
+			}
+			try{
+				System.out.println(goToPage(Integer.parseInt(_input)));
+			}
+			catch (NumberFormatException e){}
+			if (_input.equals("next")) {
+				//System.out.println("next");
+				System.out.println(next() + "\n");
+				//System.out.println("Completed next");
+			}
+
+			else if (_input.equals("back")) {
+				//System.out.println("back");
+				System.out.println(back() + "\n");
+			}
+		}
+	}
 
 	} //end class ReadBook
