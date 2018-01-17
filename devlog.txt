@@ -150,7 +150,7 @@ Shruthi :: Modified class Library so that the user can choose any book within th
 
 2018-01-16
 --------------------------------------------------------------
-Shruthi :: Modified class Library and ReadBook so that the user can print the contents of a book by entering "next" or "back". Also edited goToPage but not yet functional.
+Shruthi :: Modified class Library and ReadBook so that the user can print the contents of a book by entering "next" or "back". Also edited goToPage but not yet functional. Added books to Genres directory.
 ==============================================================
 
 2018-01-16
