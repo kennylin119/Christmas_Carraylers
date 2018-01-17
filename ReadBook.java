@@ -13,6 +13,7 @@ public class ReadBook {
 	
 	private Scanner _book;
 	private Scanner _bookR;
+	private File _text;
     private int _page;
 	private int _numPgs;
 	public int _counter;
@@ -23,9 +24,10 @@ public class ReadBook {
 	public ReadBook(String genre, String subgenre, String title) {
 		
 		try {
-		File text = new File("Genres/" + genre + "/" + subgenre + "/" + title);
-		_book = new Scanner(text);
-		_bookR = new Scanner(text);
+		_text = new File("Genres/" + genre + "/" + subgenre + "/" + title);
+		_book = new Scanner(_text);
+		_bookR = new Scanner(_text);
+
 		}
 		
 		catch (Exception FileNotFoundException) {
@@ -41,7 +43,7 @@ public class ReadBook {
     //instead of making these Strings we can just make it void and SOP--evaluate return types for this and other classes
     //changes int page += 1 so the book "flips" forward
     public void next() {
-		if (_page==_numPgs) {
+		if (_page>=_numPgs-1) {
 			System.out.println( "The end - you are on the last page!");
 		}
 		else {
@@ -53,7 +55,7 @@ public class ReadBook {
 
     //changes int page -= 1 so the book "flips" backward
     public void back() {
-		if (_page==0) {
+		if (_page<=1) {
 			System.out.println("You are on the first page.");
 		}
 		else {
@@ -75,13 +77,17 @@ public class ReadBook {
 	}
 		
  	public void printPage(){
+
  	    String text = "";
 			int ctrStart = (_page-1)*350;
 			System.out.println("ctrStart is " + ctrStart);
 			int ctrEnd = (_page)*350;
 			System.out.println("ctrEnd is " + ctrEnd);
 			int ctr = 0;
- 	    while (_bookR.hasNext()) {
+		System.out.println(" ");
+		System.out.println("Page "+ _page );
+		System.out.println(" ");
+ 	    while (_bookR.hasNext() && ctr < ctrEnd) {
 			if( ctr < ctrStart ) {
 				_bookR.next();
 			}
@@ -90,12 +96,14 @@ public class ReadBook {
  			}
 			ctr+=1;
 		}
+
   	}
 
     //flips  book to specific int page number
     public void goToPage(int pg) {
+		
 		if (pg < _numPgs) {
-			System.out.println("HEEELLO");
+			
 			_page = pg;
 			printPage();
 		}
