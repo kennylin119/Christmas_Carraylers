@@ -16,8 +16,13 @@ public class ReadBook {
 	private File _text;
     private int _page;
 	private int _numPgs;
-	public int _counter;
+	public int _wordCount;
 	private double _avgWordLength;
+    private int _charCount;
+    private int _sentenceCount;
+    private int _avgWL;
+    private int _avgSL;
+    private String _textStr; //string version of text
 	
 	//constructor
 	
@@ -27,14 +32,12 @@ public class ReadBook {
 		_text = new File("Genres/" + genre + "/" + subgenre + "/" + title);
 		_book = new Scanner(_text);
 		_bookR = new Scanner(_text);
-
 		}
 		
 		catch (Exception FileNotFoundException) {
 			System.out.println("Sorry, file not found.");
 		}
-		
-		_counter = 0;
+		_wordCount = 0;
 		_page = 0;
 		_numPgs = calcPgs();
 	}
@@ -77,7 +80,6 @@ public class ReadBook {
 	}
 		
  	public void printPage(){
-
  	    String text = "";
 			int ctrStart = (_page-1)*350;
 			System.out.println("ctrStart is " + ctrStart);
@@ -90,6 +92,9 @@ public class ReadBook {
  	    while (_bookR.hasNext() && ctr < ctrEnd) {
 			if( ctr < ctrStart ) {
 				_bookR.next();
+				/*_text += _bookR.next();
+				System.out.println("Hello");
+				System.out.println(_text);*/    
 			}
  			else if( ctr > ctrStart && ctr < ctrEnd ) {
  				System.out.print(_bookR.next() + " "); //prints out word plus space
@@ -135,20 +140,39 @@ public class ReadBook {
 	//likely oversimplified but it works!
  	public int wordCounter() {
 		while (_book.hasNext()) {
-			_book.next();
+			_textStr += _book.next();
+			//System.out.println(_textStr);
 			//comment out the previous line and uncomment the following line if you would also like to see the text (a temporary fix)
 			//System.out.print(_book.next() + " ");
-			_counter++;
+			_wordCount++;
 			}
 			//_book.close();
-		return _counter;
+		return _wordCount;
 	}
-	
-    /* public static void main (String[] args) {
-		
-		ReadBook blue = new ReadBook("Paine_CommonSense - short.txt");
-		System.out.println();
-		System.out.println(blue.wordCounter());
-    } */
+    public int numSentences() {
+     _charCount = 0;
+     _sentenceCount = 0;
+    for (int i = 0; i < _textStr.length() - 1; i++) {
+	String letter = _textStr.substring(i, i += 1);
+	if (letter.matches("[a-zA-Z]+"))// set of all alphabets
+	    {
+		_charCount += 1; //increase only if actual letter
+	    }
+	if (letter.matches("[.?!]"))
+	    {
+		_sentenceCount += 1; //rough estimate of number of sentences
+	    }
+    } return _sentenceCount;
+}
+
+public int avgWordLength(){
+     return _avgWL = _charCount/_wordCount; 
+}
+
+    public int avgSentenceLength()
+    {
+	int charsInSentence = _charCount/_sentenceCount;
+	 return _avgSL = charsInSentence / _avgWL;
+    }
 
 } //end class ReadBook

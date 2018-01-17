@@ -24,13 +24,18 @@ public class Library {
 	}
  
 // returns list of Statistics from Stats class based on current book 
-    /*	public String printStats() {
-		
-	} 
+    /*public void printStats() {
+		System.out.println();
+		System.out.println("There are "+blue.wordCounter()+" words in " + lib._title);
+		System.out.println("There are "+blue.calcPgs()+" pages in " + lib._title);
+		System.out.println("There are "+blue.numSentences()+ " sentences in " + lib._title);
+		System.out.println("The average word length is "+blue.avgWordLength()+" in " + lib._title);
+		System.out.println("The average word sentence length is "+blue.avgSentenceLength()+" in " + lib._title);
+		} */
 /* 	public String toString() {
 		//Benefit of having toString not print stats? What else would be printed?
 		//Possibly just print title/subgenre/author
-	} */
+		} */
 
     //
  	public String get1d() {
@@ -121,6 +126,9 @@ public class Library {
 		System.out.println();
 		System.out.println("There are "+blue.wordCounter()+" words in " + lib._title);
 		System.out.println("There are "+blue.calcPgs()+" pages in " + lib._title);
+		System.out.println("There are "+blue.numSentences()+ " sentences in " + lib._title);
+		System.out.println("The average word length is "+blue.avgWordLength()+" in " + lib._title);
+		System.out.println("The average word sentence length is "+blue.avgSentenceLength()+" in " + lib._title);		    
 		while(true){
 		System.out.println("\nEnter next or back to change pages, or go to a page by entering a page number");
 		String input = Keyboard.readString();
@@ -139,8 +147,7 @@ public class Library {
 			blue.back();
 		}
 
-		
-
+	       
 /* 		System.out.println("What subgenre of books would you like to read?");
 		String subgenre = Keyboard.readString(); //user inputs desired subgenre 	
 		lib.enter2d(subgenre); //enters inputed subgenre
