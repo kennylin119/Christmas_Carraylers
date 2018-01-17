@@ -119,22 +119,26 @@ public class Library {
 
 		ReadBook blue = new ReadBook(lib._genre, lib._subgenre, lib._title);
 		System.out.println();
-		System.out.println("There are "+blue.wordCounter()+" in " + lib._title);
-		System.out.println("There are "+blue.calcPgs()+" in " + lib._title);
+		System.out.println("There are "+blue.wordCounter()+" words in " + lib._title);
+		System.out.println("There are "+blue.calcPgs()+" pages in " + lib._title);
 		while(true){
 		System.out.println("\nEnter next or back to change pages, or go to a page by entering a page number");
-		if (Keyboard.readString().equals("next")) {
-			blue.next();
+		String input = Keyboard.readString();
+		try{
+			blue.goToPage(Integer.parseInt(input));
 		}
-		else if (Keyboard.readString().equals("back")) {
+		catch (NumberFormatException e){}
+		if (input.equals("next")) {
+			//System.out.println("next");
+			blue.next();
+			//System.out.println("Completed next");
+		}
+
+		else if (input.equals("back")) {
+			//System.out.println("back");
 			blue.back();
 		}
-		//just a test, has to actually take any number input:
-		else {
-			blue.goToPage(Integer.parseInt(Keyboard.readString()));
-		}
-		System.out.println("One loop dones");
-	}
+
 		
 
 /* 		System.out.println("What subgenre of books would you like to read?");
@@ -155,4 +159,4 @@ public class Library {
 	}
 
 
-} //end class Library
+}} //end class Library
