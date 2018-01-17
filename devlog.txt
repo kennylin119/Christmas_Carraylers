@@ -151,7 +151,7 @@ Shruthi :: Modified class Library so that the user can choose any book within th
 2018-01-16
 --------------------------------------------------------------
 Shruthi :: Modified class Library and ReadBook so that the user can print the contents of a book by entering "next" or "back". Also edited goToPage but not yet functional. Added books to Genres directory.
-Maryann :: Worked on next and back, got go to page to work and made it so while loop in main function of Library actually works.
+Maryann :: Worked on next and back, got go to page to work and made it so while loop in main function of Library actually works. Fixed UML diagram.
 ==============================================================
 
 2018-01-17
